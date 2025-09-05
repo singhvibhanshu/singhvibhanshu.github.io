@@ -142,7 +142,10 @@
         /* Responsive design for smaller screens */
         @media (max-width: 600px) {
             body {
-                padding: 1rem;
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+                display: block;
             }
             .header {
                 flex-direction: column;
