@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
     <title>snwy.me</title>
-    <link rel="stylesheet" href="index.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
-      rel="stylesheet"
-    />
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.1.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
-    "react/": "https://aistudiocdn.com/react@^19.1.1/"
-  }
-}
-</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Flamenco&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
-  </body>
+<body>
+    <div id="header">
+        <h1 id="title">snwy ~ me</h1>
+        <p style="scale: 2; margin-left: 16px; margin-right: 16px; "><b>|</b></p>
+        <noscript>
+            <style>
+                .moonbtn {
+                    display: none;
+                }
+            </style>
+        </noscript>
+        <div id="navbuttons">
+            <a href="https://github.com/snoglobe" class="navbutton">github</a>
+            <a href="https://blog.snwy.me" class="navbutton">blog</a>
+            <a href="https://shop.snwy.me" class="navbutton">shop</a>
+            <a onclick="toggleMode()" class="navbutton moonbtn"><img src="sleep_FILL1_wght100_GRAD200_opsz48.svg" style="height: 1em; margin: 0; transition: filter 1s;" id="moon"></a>
+        </div>
+    </div>
+    <hr>
+    <h1 class="main_heading hr-lines"><span>hi!</span></h1>
+    <p class="body_text">i'm a programmer, designer, and maker. i'm currently fascinated with programming languages, embedded systems, and electronics.
+        i'm a leader of the <a href="https://essexhacks.org/">essex high school hack club</a>,
+        creator of the <a href="https://aurora-lang.org">aurora scripting language</a> and the <a href="https://shop.snwy.me/snwboard">snwboard</a> development board.</p>
+    <h1 class="main_heading hr-lines"><span>contact</span></h1>
+    <p class="body_text">i communicate primarily through discord and email. don't hesitate to contact me, i'm nice (i hope) :)</p>
+    <ul>
+        <li>discord: snwy#7763</li>
+        <li>email: <a href="mailto:snwy@snwy.me">snwy@snwy.me</a></li>
+    </ul>
+    <script src="index.js"></script>
+</body>
 </html>
