@@ -11,9 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <style>
         /* Basic styles for the body to set the retro terminal theme */
-        html {
-            height: 100%;
-        }
         body {
             background-color: #1c1c1c;
             color: #d7d7d7;
@@ -22,12 +19,10 @@
             letter-spacing: 0.5px; /* Added letter spacing for visual accuracy */
             line-height: 1.5;
             margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 2rem;
+            min-height: 100vh;
             position: relative; /* Needed for the scan lines overlay */
-            overflow: hidden; /* Hide horizontal overflow */
+            overflow-x: hidden; /* Hide horizontal overflow */
         }
         
         /* Scan lines overlay effect */
@@ -53,7 +48,6 @@
         /* Main container to hold all the content */
         .container {
             max-width: 700px;
-            padding: 2rem;
             width: 100%;
             margin: auto; /* Centering the container */
         }
@@ -142,10 +136,7 @@
         /* Responsive design for smaller screens */
         @media (max-width: 600px) {
             body {
-                height: auto;
-                min-height: 100vh;
-                overflow-y: auto;
-                display: block;
+                padding: 1rem;
             }
             .header {
                 flex-direction: column;
