@@ -2,43 +2,163 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>snwy.me</title>
+    <!-- Using a monospace font from Google Fonts to match the style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Flamenco&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styles for the body to set the retro terminal theme */
+        body {
+            background-color: #1a1a1a;
+            color: #dcdcdc;
+            font-family: 'VT323', monospace; /* A classic pixel/monospace font */
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        /* Main container to hold all the content */
+        .container {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        /* Header section containing the image, name, and main links */
+        .header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            gap: 2rem; /* space between image and text */
+        }
+
+        /* Styling for the profile image */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border: 2px solid #dcdcdc;
+            /* The image-rendering property helps maintain the pixelated look */
+            image-rendering: pixelated;
+        }
+
+        /* Container for the name and navigation links */
+        .header-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-info h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.5rem;
+            font-weight: normal;
+        }
+        
+        /* Styling for all links to have brackets and no underline */
+        a {
+            color: #dcdcdc;
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        
+        a:hover {
+            background-color: #dcdcdc;
+            color: #1a1a1a;
+        }
+
+        /* Navigation links in the header */
+        .nav-links {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.2rem;
+        }
+        
+        /* Paragraph styling */
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Horizontal rule styling to match the image */
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #555;
+            margin: 2rem 0;
+        }
+        
+        /* Contact info list */
+        .contact-info {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li {
+             margin-bottom: 0.2rem;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 1rem;
+            }
+            .header-info h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div id="header">
-        <h1 id="title">snwy ~ me</h1>
-        <p style="scale: 2; margin-left: 16px; margin-right: 16px; "><b>|</b></p>
-        <noscript>
-            <style>
-                .moonbtn {
-                    display: none;
-                }
-            </style>
-        </noscript>
-        <div id="navbuttons">
-            <a href="https://github.com/snoglobe" class="navbutton">github</a>
-            <a href="https://blog.snwy.me" class="navbutton">blog</a>
-            <a href="https://shop.snwy.me" class="navbutton">shop</a>
-            <a onclick="toggleMode()" class="navbutton moonbtn"><img src="sleep_FILL1_wght100_GRAD200_opsz48.svg" style="height: 1em; margin: 0; transition: filter 1s;" id="moon"></a>
-        </div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <img src="https://i.pinimg.com/564x/4e/69/02/4e69022648053a4f6644f528768a30a2.jpg" alt="Profile Picture" class="profile-img" onerror="this.onerror=null;this.src='https://placehold.co/120x120/1a1a1a/dcdcdc?text=snwy';">
+            <div class="header-info">
+                <h1>snwy.me</h1>
+                <ul class="nav-links">
+                    <li><a href="#">[github]</a></li>
+                    <li><a href="#">[x]</a></li>
+                    <li><a href="#">[store]</a></li>
+                    <li><a href="#">[youtube]</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <p>hey, i'm snwy. i'm a software engineer who's interested in programming language design and theory. i'm also interested in distributed systems, machine learning, and the future of computing.</p>
+            <p>i dropped out of high school in 2024 and got my GED to pursue a career.</p>
+            <p>go to my github to look at some of the things i've made!</p>
+            
+            <hr>
+            
+            <p>contact me:</p>
+            <ul class="contact-info">
+                <li><a href="mailto:snwy@snwy.me">[email: snwy@snwy.me]</a></li>
+                <li><a href="#">[x: @snwy_me]</a></li>
+                <li><a href="#">[discord: snwy]</a></li>
+            </ul>
+
+            <hr>
+
+            <p>thanks for visiting!</p>
+        </main>
     </div>
-    <hr>
-    <h1 class="main_heading hr-lines"><span>hi!</span></h1>
-    <p class="body_text">i'm a programmer, designer, and maker. i'm currently fascinated with programming languages, embedded systems, and electronics.
-        i'm a leader of the <a href="https://essexhacks.org/">essex high school hack club</a>,
-        creator of the <a href="https://aurora-lang.org">aurora scripting language</a> and the <a href="https://shop.snwy.me/snwboard">snwboard</a> development board.</p>
-    <h1 class="main_heading hr-lines"><span>contact</span></h1>
-    <p class="body_text">i communicate primarily through discord and email. don't hesitate to contact me, i'm nice (i hope) :)</p>
-    <ul>
-        <li>discord: snwy#7763</li>
-        <li>email: <a href="mailto:snwy@snwy.me">snwy@snwy.me</a></li>
-    </ul>
-    <script src="index.js"></script>
+
 </body>
 </html>
