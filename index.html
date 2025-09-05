@@ -11,29 +11,49 @@
     <style>
         /* Basic styles for the body to set the retro terminal theme */
         body {
-            background-color: #1a1a1a;
-            color: #dcdcdc;
+            background-color: #1c1c1c;
+            color: #d7d7d7;
             font-family: 'VT323', monospace; /* A classic pixel/monospace font */
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 17px; /* Adjusted font size */
+            line-height: 1.5;
             margin: 0;
             padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
             min-height: 100vh;
+            position: relative; /* Needed for the scan lines overlay */
+            overflow-x: hidden; /* Hide horizontal overflow */
         }
+        
+        /* Scan lines overlay effect */
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.3),
+                rgba(0, 0, 0, 0.3) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none; /* Allows clicking through the overlay */
+            z-index: 1000;
+        }
+
 
         /* Main container to hold all the content */
         .container {
             max-width: 700px;
             width: 100%;
+            margin: auto; /* Centering the container */
         }
 
         /* Header section containing the image, name, and main links */
         .header {
             display: flex;
-            align-items: flex-start;
+            align-items: flex-start; /* Aligned to top to match image */
             margin-bottom: 2rem;
             gap: 2rem; /* space between image and text */
         }
@@ -42,15 +62,16 @@
         .profile-img {
             width: 120px;
             height: 120px;
-            border: 2px solid #dcdcdc;
             /* The image-rendering property helps maintain the pixelated look */
             image-rendering: pixelated;
+            filter: grayscale(1) contrast(1.2); /* Added filter to better match the image style */
         }
 
         /* Container for the name and navigation links */
         .header-info {
             display: flex;
             flex-direction: column;
+            padding-top: 0.5rem; /* Added padding to align text with image */
         }
 
         .header-info h1 {
@@ -61,15 +82,11 @@
         
         /* Styling for all links to have brackets and no underline */
         a {
-            color: #dcdcdc;
+            color: #d7d7d7;
             text-decoration: none;
-            transition: background-color 0.2s, color 0.2s;
         }
         
-        a:hover {
-            background-color: #dcdcdc;
-            color: #1a1a1a;
-        }
+        /* Removed the hover effect for a more static, exact replica */
 
         /* Navigation links in the header */
         .nav-links {
@@ -84,6 +101,7 @@
         
         /* Paragraph styling */
         p {
+            margin-top: 0;
             margin-bottom: 1.5rem;
         }
 
@@ -91,7 +109,7 @@
         hr {
             border: none;
             height: 1px;
-            background-color: #555;
+            background-color: #444; /* Made the line more subtle */
             margin: 2rem 0;
         }
         
@@ -116,6 +134,9 @@
                 text-align: center;
                 gap: 1rem;
             }
+             .header-info {
+                padding-top: 0;
+            }
             .header-info h1 {
                 font-size: 2rem;
             }
@@ -127,7 +148,7 @@
     <div class="container">
         <!-- Header Section -->
         <header class="header">
-            <img src="https://i.pinimg.com/564x/4e/69/02/4e69022648053a4f6644f528768a30a2.jpg" alt="Profile Picture" class="profile-img" onerror="this.onerror=null;this.src='https://placehold.co/120x120/1a1a1a/dcdcdc?text=snwy';">
+            <img src="https://i.pinimg.com/564x/4e/69/02/4e/69022648053a4f6644f528768a30a2.jpg" alt="Profile Picture" class="profile-img" onerror="this.onerror=null;this.src='https://placehold.co/120x120/1a1a1a/dcdcdc?text=snwy';">
             <div class="header-info">
                 <h1>snwy.me</h1>
                 <ul class="nav-links">
@@ -162,3 +183,4 @@
 
 </body>
 </html>
+
