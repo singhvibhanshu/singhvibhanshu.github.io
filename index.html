@@ -1,203 +1,232 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>singhvibhanshu</title>
-    <link rel="icon" type="image/png" href="profile.png">
-    <!-- Using a monospace font from Google Fonts to match the style -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <style>
-        /* Basic styles for the body to set the retro terminal theme */
-        body {
-            background-color: #1c1c1c;
-            color: #d7d7d7;
-            font-family: 'Cutive Mono', monospace; /* A classic pixel/monospace font */
-            font-size: 16.2px; /* Re-adjusted font size */
-            letter-spacing: 0.5px; /* Added letter spacing for visual accuracy */
-            line-height: 1.5;
-            margin: 0;
-            padding: 2rem;
-            min-height: 100vh;
-            position: relative; /* Needed for the scan lines overlay */
-            overflow-x: hidden; /* Hide horizontal overflow */
-        }
-        
-        /* Scan lines overlay effect */
-        body::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.3),
-                rgba(0, 0, 0, 0.3) 1px,
-                transparent 1px,
-                transparent 2px
-            );
-            pointer-events: none; /* Allows clicking through the overlay */
-            z-index: 1000;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>singhvibhanshu</title>
+<link rel="icon" type="image/png" href="profile.png">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* Main container to hold all the content */
-        .container {
-            max-width: 700px;
-            width: 100%;
-            margin: auto; /* Centering the container */
-        }
+<style>
+body {
+    background-color: #1c1c1c;
+    color: #d7d7d7;
+    font-family: 'Cutive Mono', monospace;
+    font-size: 16.2px;
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
 
-        /* Header section containing the image, name, and main links */
-        .header {
-            display: flex;
-            align-items: flex-start; /* Aligned to top to match image */
-            margin-bottom: 2rem;
-            gap: 2rem; /* space between image and text */
-        }
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0,0,0,0.3),
+        rgba(0,0,0,0.3) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 1000;
+}
 
-        /* Styling for the profile image */
-        .profile-img {
-            width: 300px;
-            height: 300px;
-            /* The image-rendering property helps maintain the pixelated look */
-            image-rendering: pixelated;
-            filter: grayscale(1) contrast(1.2); /* Added filter to better match the image style */
-        }
+.container {
+    max-width: 700px;
+    width: 100%;
+    margin: auto;
+}
 
-        /* Container for the name and navigation links */
-        .header-info {
-            display: flex;
-            flex-direction: column;
-            padding-top: 0.5rem; /* Added padding to align text with image */
-        }
+.header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
 
-        .header-info h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2.5rem;
-            font-weight: normal;
-        }
-        
-        /* Styling for all links to have brackets and no underline */
-        a {
-            color: #d7d7d7;
-            text-decoration: none;
-        }
-        
-        /* Removed the hover effect for a more static, exact replica */
+.profile-img {
+    width: 300px;
+    height: 300px;
+    image-rendering: pixelated;
+    filter: grayscale(1) contrast(1.2);
+}
 
-        /* Navigation links in the header */
-        .nav-links {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
+.header-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+}
 
-        .nav-links li {
-            margin-bottom: 0.2rem;
-        }
-        
-        /* Paragraph styling */
-        p {
-            margin-top: 0;
-            margin-bottom: 1.5rem;
-        }
+.header-info h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: normal;
+}
 
-        /* Horizontal rule styling to match the image */
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #444; /* Made the line more subtle */
-            margin: 2rem 0;
-        }
-        
-        /* Contact info list */
-        .contact-info {
-            list-style: none;
-            padding: 0;
-        }
+.life-line {
+    margin: 0.2rem 0 0.8rem 0;
+    font-size: 0.9rem;
+    color: #a8a8a8;
+}
 
-        .contact-info li {
-             margin-bottom: 0.2rem;
-        }
+a {
+    color: #d7d7d7;
+    text-decoration: none;
+}
 
-        /* Styling for the credits footer */
-        .credits {
-            text-align: right;
-            font-size: 14px;
-            color: #888;
-            margin-top: 2rem;
-        }
+.nav-links {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 
-        /* Responsive design for smaller screens */
-        @media (max-width: 600px) {
-            body {
-                padding: 1rem;
-            }
-            .header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 1rem;
-            }
-             .header-info {
-                padding-top: 0;
-            }
-            .header-info h1 {
-                font-size: 2rem;
-            }
-            .credits {
-                text-align: center;
-            }
-        }
-    </style>
+.nav-links li {
+    margin-bottom: 0.2rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #444;
+    margin: 2rem 0;
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 0.2rem;
+}
+
+.credits {
+    text-align: right;
+    font-size: 14px;
+    color: #888;
+    margin-top: 2rem;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .header-info {
+        padding-top: 0;
+    }
+
+    .header-info h1 {
+        font-size: 2rem;
+    }
+
+    .credits {
+        text-align: center;
+    }
+}
+</style>
+
 </head>
+
 <body>
 
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <img src="profile.png" alt="Profile Picture" class="profile-img" onerror="this.onerror=null;this.src='https://placehold.co/120x120/1a1a1a/dcdcdc?text=singhvibhanshu';">
-            <div class="header-info">
-                <h1>singhvibhanshu</h1>
-                <ul class="nav-links">
-                    <li><a href="https://github.com/singhvibhanshu" target="_blank" style="text-decoration: underline;">[github]</a></li>
-                    <li><a href="https://x.com/singhvibhanshu_" target="_blank" style="text-decoration: underline;">[twitter]</a></li>
-                </ul>
-            </div>
-        </header>
+<div class="container">
 
-        <hr>
+<header class="header">
 
-        <!-- Main Content -->
-        <main>
-            <p>hey, i'm vibhanshu. i'm a software engineer who's interested in open-source contributions. i'm also interested in various programming languages, machine learning, and the future of computing.</p>
-            <p>i graduated high school in 2022 and am now a junior at mait, pursuing my degree and career goals.</p>
-            <p>go to my github to look at some of the things i've made!</p>
+<img src="profile.png" alt="Profile Picture" class="profile-img"
+onerror="this.onerror=null;this.src='https://placehold.co/120x120/1a1a1a/dcdcdc?text=singhvibhanshu';">
 
-            <hr>
-            
-            <p>contact me:</p>
-            <ul class="contact-info">
-                <li>[email: <a href="mailto: singhvibhanshu@hotmail.com"><span style="text-decoration: underline;">singhvibhanshu@hotmail.com</span>]</a></li>
-                <li>[x: <a href="https://x.com/singhvibhanshu_" target="_blank"><span style="text-decoration: underline;">@singhvibhanshu_</span>]</a></li>
-                <li>[discord: <a href="https://discord.com/singhvibhanshu"><span style="text-decoration: underline;">@singhvibhanshu</span>]</a></li>
-            </ul>
+<div class="header-info">
 
-            <hr>
+<h1>hi, vibhanshu here</h1>
 
-            <p>thanks for visiting!</p>
-        </main>
+<p class="life-line">
+been here for <span id="ageTimer">calculating...</span> years
+</p>
 
-        <!-- Credits Footer -->
-        <footer class="credits">
-            <p>Design inspired by <b>snwy.me</b></p>
-        </footer>
-    </div>
+<ul class="nav-links">
+<li><a href="https://github.com/singhvibhanshu" target="_blank" style="text-decoration: underline;">[github]</a></li>
+<li><a href="https://x.com/singhvibhanshu_" target="_blank" style="text-decoration: underline;">[twitter]</a></li>
+</ul>
+
+</div>
+</header>
+
+<hr>
+
+<main>
+
+<p>hey, i'm vibhanshu. i'm a software engineer who's interested in open-source contributions. i'm also interested in various programming languages, machine learning, and the future of computing.</p>
+
+<p>i graduated high school in 2022 and am now a junior at mait, pursuing my degree and career goals.</p>
+
+<p>go to my github to look at some of the things i've made!</p>
+
+<hr>
+
+<p>contact me:</p>
+
+<ul class="contact-info">
+<li>[email: <a href="mailto: singhvibhanshu@hotmail.com"><span style="text-decoration: underline;">singhvibhanshu@hotmail.com</span></a>]</li>
+<li>[x: <a href="https://x.com/singhvibhanshu_" target="_blank"><span style="text-decoration: underline;">@singhvibhanshu_</span></a>]</li>
+<li>[discord: <a href="https://discord.com/singhvibhanshu"><span style="text-decoration: underline;">@singhvibhanshu</span></a>]</li>
+</ul>
+
+<hr>
+
+<p>thanks for visiting!</p>
+
+</main>
+
+<footer class="credits">
+<p>Design inspired by <b>snwy.me</b></p>
+</footer>
+
+</div>
+
+<script>
+
+const birthDate = new Date("2003-09-18T00:44:00+05:30");
+const msInYear = 365.2425 * 24 * 60 * 60 * 1000;
+
+function updateAge() {
+
+const now = new Date();
+const age = (now - birthDate) / msInYear;
+
+document.getElementById("ageTimer").textContent = age.toFixed(9);
+
+}
+
+setInterval(updateAge, 50);
+updateAge();
+
+</script>
 
 </body>
 </html>
