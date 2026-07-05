@@ -4,8 +4,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>singhvibhanshu</title>
-<link rel="icon" type="image/png" href="profile.png">
+<title>Vibhanshu Singh | Software Engineer</title>
+<meta name="description" content="Vibhanshu Singh, software engineer interested in open-source, programming languages, machine learning, and the future of computing.">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vibhanshu Singh | Software Engineer">
+<meta property="og:description" content="Software engineer interested in open-source, programming languages, and machine learning.">
+<meta property="og:image" content="https://singhvibhanshu.github.io/profile.jpg">
+<meta property="og:url" content="https://singhvibhanshu.github.io/">
+<meta name="twitter:card" content="summary">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,7 +92,7 @@ body::after {
 
 a {
     color: #d7d7d7;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .nav-links {
@@ -158,8 +167,8 @@ hr {
 
 <header class="header">
 
-<img src="profile.png" alt="Profile Picture" class="profile-img"
-onerror="this.onerror=null;this.src='https://placehold.co/120x120/1a1a1a/dcdcdc?text=singhvibhanshu';">
+<img src="profile.jpg" alt="Vibhanshu Singh" class="profile-img" width="300" height="300"
+onerror="this.onerror=null;this.src='https://placehold.co/300x300/1a1a1a/dcdcdc?text=singhvibhanshu';">
 
 <div class="header-info">
 
@@ -170,8 +179,8 @@ been here for <span id="ageTimer">calculating...</span> years
 </p>
 
 <ul class="nav-links">
-<li><a href="https://github.com/singhvibhanshu" target="_blank" style="text-decoration: underline;">[github]</a></li>
-<li><a href="https://x.com/singhvibhanshu_" target="_blank" style="text-decoration: underline;">[twitter]</a></li>
+<li><a href="https://github.com/singhvibhanshu" target="_blank" rel="noopener">[github]</a></li>
+<li><a href="https://www.linkedin.com/in/singhvibhanshu" target="_blank" rel="noopener">[linkedin]</a></li>
 </ul>
 
 </div>
@@ -192,9 +201,8 @@ been here for <span id="ageTimer">calculating...</span> years
 <p>contact me:</p>
 
 <ul class="contact-info">
-<li>[email: <a href="mailto: singhvibhanshu@hotmail.com"><span style="text-decoration: underline;">singhvibhanshu@hotmail.com</span></a>]</li>
-<li>[x: <a href="https://x.com/singhvibhanshu_" target="_blank"><span style="text-decoration: underline;">@singhvibhanshu_</span></a>]</li>
-<li>[discord: <a href="https://discord.com/singhvibhanshu"><span style="text-decoration: underline;">@singhvibhanshu</span></a>]</li>
+<li>[email: <a href="mailto:find.vibhanshu@gmail.com">find.vibhanshu@gmail.com</a>]</li>
+<li>[linkedin: <a href="https://www.linkedin.com/in/singhvibhanshu" target="_blank" rel="noopener">in/singhvibhanshu</a>]</li>
 </ul>
 
 <hr>
@@ -213,18 +221,24 @@ been here for <span id="ageTimer">calculating...</span> years
 
 const birthDate = new Date("2003-09-18T00:44:00+05:30");
 const msInYear = 365.2425 * 24 * 60 * 60 * 1000;
+const ageEl = document.getElementById("ageTimer");
 
-function updateAge() {
-
-const now = new Date();
-const age = (now - birthDate) / msInYear;
-
-document.getElementById("ageTimer").textContent = age.toFixed(9);
-
+function ageValue() {
+    return ((new Date() - birthDate) / msInYear).toFixed(9);
 }
 
-setInterval(updateAge, 50);
-updateAge();
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (reduceMotion) {
+    // Show a stable value without the rapidly-ticking decimals.
+    ageEl.textContent = (Math.floor(parseFloat(ageValue()) * 10) / 10).toFixed(1);
+} else {
+    // requestAnimationFrame pauses automatically when the tab is hidden.
+    (function tick() {
+        ageEl.textContent = ageValue();
+        requestAnimationFrame(tick);
+    })();
+}
 
 </script>
 
