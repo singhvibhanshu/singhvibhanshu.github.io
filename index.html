@@ -126,6 +126,61 @@ hr {
     margin-bottom: 0.2rem;
 }
 
+.section-title {
+    font-size: 1.15rem;
+    color: #f0f0f0;
+    margin: 0 0 1.2rem 0;
+    font-weight: normal;
+}
+
+.entry {
+    margin-bottom: 1.6rem;
+}
+
+.entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+    margin-bottom: 0.35rem;
+}
+
+.entry-name {
+    color: #f0f0f0;
+}
+
+.entry-tags {
+    color: #7f9f7f;
+    font-size: 0.82rem;
+}
+
+.entry-links {
+    font-size: 0.85rem;
+}
+
+.entry-desc {
+    margin: 0;
+    color: #b8b8b8;
+    font-size: 0.92rem;
+}
+
+.entry-desc .impact {
+    color: #9a9a9a;
+}
+
+.muted {
+    color: #8a8a8a;
+    font-size: 0.9rem;
+}
+
+code {
+    background-color: #2a2a2a;
+    color: #e0c78a;
+    padding: 0 0.25em;
+    border-radius: 2px;
+    font-size: 0.88em;
+}
+
 .credits {
     text-align: right;
     font-size: 14px;
@@ -194,7 +249,116 @@ been here for <span id="ageTimer">calculating...</span> years
 
 <p>i graduated high school in 2022 and am now a junior at mait, pursuing my degree and career goals.</p>
 
-<p>go to my github to look at some of the things i've made!</p>
+<hr>
+
+<h2 class="section-title">projects</h2>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">&gt; folio</span>
+<span class="entry-tags">[go · cli]</span>
+<span class="entry-links"><a href="https://github.com/singhvibhanshu/folio" target="_blank" rel="noopener">[repo]</a> <a href="https://www.npmjs.com/package/@singhvibhanshu/folio" target="_blank" rel="noopener">[npm]</a></span>
+</div>
+<p class="entry-desc">privacy-first, fully offline pdf toolkit. merge, split, compress, protect, watermark and reorder pages entirely on your machine. nothing is ever uploaded.</p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">&gt; imago</span>
+<span class="entry-tags">[go · cli]</span>
+<span class="entry-links"><a href="https://github.com/singhvibhanshu/imago" target="_blank" rel="noopener">[repo]</a> <a href="https://www.npmjs.com/package/@singhvibhanshu/imago" target="_blank" rel="noopener">[npm]</a></span>
+</div>
+<p class="entry-desc">a fully offline cli to convert, compress, resize and strip metadata from images. your photos never leave your machine.</p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">&gt; tailor-ai</span>
+<span class="entry-tags">[next.js · typescript]</span>
+<span class="entry-links"><a href="https://github.com/singhvibhanshu/tailor-ai" target="_blank" rel="noopener">[repo]</a> <a href="https://tailor-ai-3b5a.onrender.com/" target="_blank" rel="noopener">[demo]</a></span>
+</div>
+<p class="entry-desc">ai-powered cover letter generator: turns your resume and a job description into a tailored letter in seconds. built with next.js, gemini, prisma and razorpay.</p>
+</div>
+
+<hr>
+
+<h2 class="section-title">open source</h2>
+
+<p class="muted">70+ merged pull requests across the cloud-native and observability ecosystem, mostly opentelemetry, plus jaeger, kyverno, kestra, kargo, appwrite and jenkins. a few i'm proud of:</p>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">jaegertracing/jaeger</span>
+<span class="entry-tags">[feature]</span>
+<span class="entry-links"><a href="https://github.com/jaegertracing/jaeger/pull/7906" target="_blank" rel="noopener">[#7906]</a></span>
+</div>
+<p class="entry-desc">added ttl support to the clickhouse v2 storage backend. i turned the static table schema into a template so the factory dynamically injects a <code>TTL</code> clause when a positive duration is configured, and added validation plus unit tests covering positive, zero and negative values. <span class="impact">gives operators automatic data expiry instead of unbounded trace storage growth.</span></p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">opentelemetry-collector-contrib</span>
+<span class="entry-tags">[bug · awss3 receiver]</span>
+<span class="entry-links"><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47062" target="_blank" rel="noopener">[#47062]</a></span>
+</div>
+<p class="entry-desc">fixed an sqs infinite loop. aws automatically publishes an <code>s3:TestEvent</code> that has no "records" array, so parsing failed, the sns fallback also failed, and the message was never deleted, requeuing forever and skewing metrics. i intercepted the test event before the failing fallback so it falls through to deletion, with a test asserting the message is acknowledged. <span class="impact">stopped a silent, resource-burning loop in production pipelines.</span></p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">opentelemetry-collector-contrib</span>
+<span class="entry-tags">[bug · vcenter receiver]</span>
+<span class="entry-links"><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47005" target="_blank" rel="noopener">[#47005]</a></span>
+</div>
+<p class="entry-desc">fixed a nil pointer dereference that crashed the receiver while recording vm stats when the vsphere api returned incomplete data. added nil guards before dereferencing and regression tests. <span class="impact">turned a hard crash into safe, resilient metric collection.</span></p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">opentelemetry-collector</span>
+<span class="entry-tags">[bug · otlp exporter]</span>
+<span class="entry-links"><a href="https://github.com/open-telemetry/opentelemetry-collector/pull/15389" target="_blank" rel="noopener">[#15389]</a></span>
+</div>
+<p class="entry-desc">stopped a retry storm in the otlp/http exporter. a successful (2xx) response body larger than the 64kb read limit was treated as a transient failure and retried endlessly. i wrapped read/parse errors on successful exports as permanent errors so the batch is dropped instead of retried, covered by a new test. <span class="impact">prevented wasted retries and duplicate load against healthy backends.</span></p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">opentelemetry-collector-contrib</span>
+<span class="entry-tags">[bug · histograms]</span>
+<span class="entry-links"><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/46183" target="_blank" rel="noopener">[#46183]</a></span>
+</div>
+<p class="entry-desc">fixed exponential histograms whose configured <code>zero_threshold</code> was being reset to the default even when a real value was supplied in the otlp data. corrected the logic to preserve any non-zero threshold from the data point. <span class="impact">restored accurate histogram translation for prometheus remote write.</span></p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">opentelemetry-collector-contrib</span>
+<span class="entry-tags">[feature · kafka exporter]</span>
+<span class="entry-links"><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47201" target="_blank" rel="noopener">[#47201]</a></span>
+</div>
+<p class="entry-desc">added a <code>record_headers</code> config option so users can attach static headers to outgoing kafka records. wired it through the config struct and the franz-go client wrapper, documented it with an example, and added test coverage. <span class="impact">unlocked downstream routing and tenancy use cases that need message headers.</span></p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">akuity/kargo</span>
+<span class="entry-tags">[bug · git provider]</span>
+<span class="entry-links"><a href="https://github.com/akuity/kargo/pull/5605" target="_blank" rel="noopener">[#5605]</a></span>
+</div>
+<p class="entry-desc">the github provider only matched hostnames containing "github", so github enterprise cloud users on <code>ghe.com</code> domains failed detection. i updated the predicate to recognise <code>ghe.com</code> and added a test case. <span class="impact">made kargo work out of the box for enterprise github customers.</span></p>
+</div>
+
+<div class="entry">
+<div class="entry-head">
+<span class="entry-name">opentelemetry-collector-contrib</span>
+<span class="entry-tags">[feature · awsfirehose]</span>
+<span class="entry-links"><a href="https://github.com/open-telemetry/opentelemetry-collector-contrib/pull/47848" target="_blank" rel="noopener">[#47848]</a></span>
+</div>
+<p class="entry-desc">taught the awsfirehose receiver to detect and decompress gzip-encoded firehose records before decoding them. <span class="impact">let the receiver ingest a common real-world payload format it previously choked on.</span></p>
+</div>
+
+<p class="muted"><a href="https://github.com/search?q=is%3Apr+author%3Asinghvibhanshu+is%3Amerged&type=pullrequests" target="_blank" rel="noopener">[see all merged pull requests]</a></p>
 
 <hr>
 
